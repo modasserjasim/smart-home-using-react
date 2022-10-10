@@ -6,12 +6,14 @@ import ErrorPage from '../components/ErrorPage';
 import Home from '../components/Home';
 import Shop from '../components/Shop';
 import Main from '../layouts/Main';
+import { getCartAndProductsData } from '../loaders/getCartAndProducts';
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
         errorElement: <ErrorPage></ErrorPage>,
+        loader: getCartAndProductsData,
         children: [
             {
                 path: '/',
@@ -26,7 +28,6 @@ const router = createBrowserRouter([
             },
             {
                 path: 'shop',
-                loader: () => fetch('products.json'),
                 element: <Shop></Shop>
             },
             {

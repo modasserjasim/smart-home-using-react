@@ -1,8 +1,8 @@
 import React from 'react'
 
-const CartItem = () => {
-  const product = {}
-  const { id, name, price, quantity, picture } = product
+const CartItem = ({ product, handleRemove }) => {
+  const { id, name, price, quantity, picture } = product;
+
   return (
     <li className='flex flex-col py-6 sm:flex-row sm:justify-between'>
       <div className='flex w-full space-x-2 sm:space-x-4'>
@@ -27,7 +27,7 @@ const CartItem = () => {
             </div>
           </div>
           <div className='flex text-sm divide-x'>
-            <button
+            <button onClick={() => handleRemove(product)}
               type='button'
               className='flex items-center px-2 py-1 pl-0 space-x-1'
             >
